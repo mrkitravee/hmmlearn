@@ -62,11 +62,11 @@ setup_options = dict(
 
 # For these actions, NumPy is not required. We want them to succeed without,
 # for example when pip is used to install hmmlearn without NumPy present.
+import numpy as np
 NO_NUMPY_ACTIONS = ("--help-commands", "egg_info", "--version", "clean")
 if not ("--help" in sys.argv[1:] or
         len(sys.argv) > 1 and sys.argv[1] in NO_NUMPY_ACTIONS):
-    import numpy as np
-    setup_options["include_dirs"] = [np.get_include()]
+        setup_options["include_dirs"] = [np.get_include()]
 
 
 if __name__ == "__main__":
